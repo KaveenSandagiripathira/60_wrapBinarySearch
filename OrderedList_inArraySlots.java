@@ -10,7 +10,7 @@ public class OrderedList_inArraySlots
     implements OrderedList {
 
     private java.util.ArrayList<Integer> list_iAS;
-
+	private int cost;
 
     /**
       @return the index of any occurrence of
@@ -18,9 +18,10 @@ public class OrderedList_inArraySlots
               \findMe is absent from this list.
      */
     public int indexOf( Integer findMe) {
-        return indexOf_whileStyle( findMe);
-        // return indexOf_recursive(
-            // findMe, 0, list_iAS.size() -1);
+		cost = 0;
+        // return indexOf_whileStyle( findMe);
+        return indexOf_recursive(
+            findMe, 0, list_iAS.size() -1);
     }
 
 
@@ -30,8 +31,8 @@ public class OrderedList_inArraySlots
     private int indexOf_whileStyle( Integer findMe) {
         int low = 0;
         int hi  = list_iAS.size() -1;  // inclusive
-
         while( low <= hi){
+			cost++;
             int pageToCheck = (low + hi) / 2;
             int comparison =
               findMe.compareTo( list_iAS.get( pageToCheck));
@@ -71,16 +72,20 @@ public class OrderedList_inArraySlots
                 return pageToCheck; // solution other base case
             // recursive cases
             else
-                if( comparison < 0)
+                if( comparison < 0){
+					cost++;
                     // findMe's spot precedes pageToCheck
                     return indexOf_recursive( findMe
                                              , low
                                              , pageToCheck -1);
-                else
+				}
+                else{
+					cost++;
                     // findMe's spot follows pageToCheck
                     return indexOf_recursive( findMe
                                             , pageToCheck +1
                                             , hi);
+				}
         }
     }
 
@@ -144,4 +149,8 @@ public class OrderedList_inArraySlots
     public Integer remove( int index) {
         return list_iAS.remove( index);
     }
+	
+	public int cost(){
+		return cost;
+	}
 }

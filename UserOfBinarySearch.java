@@ -30,6 +30,7 @@ public class UserOfBinarySearch {
                 "Value " + findMe
               + " was found at index " + foundAt
               + ". That's correct, eh? " + (foundAt == i)
+			  + ", Size: " + orderedList.cost() + " Expected: " 
               );
         }
         System.out.println();
@@ -40,7 +41,7 @@ public class UserOfBinarySearch {
                , orderedList.get( orderedList.size() /2) +1);
         findOne( "before first ", orderedList.get(0) -5);
         findOne( "after last   "
-               , orderedList.get( orderedList.size() -1) +5);
+               , orderedList.get( orderedList.cost() -1) +5);
         System.out.println();
     }
 
@@ -56,6 +57,7 @@ public class UserOfBinarySearch {
           + " value " + value
           + " \"found\" at index " + foundAt
           + ". That's correct, eh? " + (foundAt < 0)
+		  + ", Cost: " + orderedList.cost() + " Expected: "  + Math.ceil(Math.log(10)/Math.log(2))
           );
      }
 }
