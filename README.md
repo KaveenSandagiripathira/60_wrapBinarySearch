@@ -7,14 +7,15 @@ OrderedList_inArraySlots.java
 
 based on [solutionsHolmes/5D_genericTypes/OrderedList_inArraySlots_v2/](https://github.com/stuyvesant-cs/solutionsHolmes/tree/master/5D_genericTypes/OrderedList_inArraySlots_v2)
 as of 2019-04-10 04:48
-2) 
+
+2.
 **What is meant by y = log2x ? Express its meaning in a.**
 To what power should 2 be raised to in order to get x? 2^[?] = x
 
 **What does its graph look like?**
 log(x) is the inverse graph of e^x, the graph's domain is from (0, infinity) and it is montonically increasing but the rate of increase decreases as x increases.
 
-3)
+3.
   0. State the problem
     Return the index of the first instance of a give input in an ordered list through binary search.
   1. State the Recursive Abstraction
